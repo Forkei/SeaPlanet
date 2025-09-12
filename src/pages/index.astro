@@ -229,15 +229,3 @@ import Layout from '../layouts/Layout.astro';
   </section>
 </Layout>
 
-<script>
-  // Handle Netlify Identity confirmation on homepage
-  if (window.location.hash && window.location.hash.includes('confirmation_token')) {
-    // Redirect to admin with the token
-    window.location.href = '/admin/' + window.location.hash;
-  }
-  
-  if (window.location.hash && window.location.hash.includes('invite_token')) {
-    // Redirect to admin with the invite token
-    window.location.href = '/admin/' + window.location.hash;
-  }
-</script>

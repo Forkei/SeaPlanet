@@ -1,0 +1,52 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+# This line should *not* be indented
+publish_mode: editorial_workflow
+
+# These lines should *not* be indented
+media_folder: "public/images/uploads" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
+
+locale: 'fr'
+
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Articles de Blog" # Used in the UI
+    folder: "src/content/blog" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Titre", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Date de publication", name: "publishDate", widget: "datetime", format: "YYYY-MM-DD"}
+      - {label: "Auteur", name: "author", widget: "string"}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Contenu", name: "body", widget: "markdown"}
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Page d'Accueil"
+        name: "home"
+        file: "src/pages/index.astro"
+        fields:
+          - {label: "Titre Hero", name: "heroTitle", widget: "string", required: false}
+          - {label: "Sous-titre Hero", name: "heroSubtitle", widget: "string", required: false}
+          - {label: "Section Introduction", name: "introText", widget: "text", required: false}
+          - {label: "Vision", name: "visionText", widget: "string", required: false}
+          
+      - label: "Page Missions"
+        name: "missions"
+        file: "src/pages/missions.astro"
+        fields:
+          - {label: "Titre", name: "title", widget: "string", required: false}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          
+      - label: "Page Don"
+        name: "donation"
+        file: "src/pages/don.astro"
+        fields:
+          - {label: "Titre", name: "title", widget: "string", required: false}
+          - {label: "Lien de don", name: "donationLink", widget: "string", required: false}

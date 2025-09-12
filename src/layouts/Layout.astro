@@ -24,6 +24,9 @@ const { title, description = "Planète Mer - Association de protection des océa
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    
     <title>{title} | Planète Mer</title>
   </head>
   <body class="min-h-screen flex flex-col">
@@ -70,6 +73,17 @@ const { title, description = "Planète Mer - Association de protection des océa
         const animatedElements = document.querySelectorAll('.animate-on-scroll');
         animatedElements.forEach(el => observer.observe(el));
       });
+      
+      // Netlify Identity redirect
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
     </script>
   </body>
 </html>

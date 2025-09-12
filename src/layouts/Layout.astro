@@ -74,13 +74,28 @@ const { title, description = "Planète Mer - Association de protection des océa
         animatedElements.forEach(el => observer.observe(el));
       });
       
-      // Netlify Identity redirect
+      // Netlify Identity redirect and confirmation handling
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", user => {
           if (!user) {
             window.netlifyIdentity.on("login", () => {
               document.location.href = "/admin/";
             });
+          }
+        });
+        
+        // Handle the confirmation token
+        window.netlifyIdentity.on("init", () => {
+          const token = document.location.hash.match(/confirmation_token=([^&]+)/);
+          if (token) {
+            window.netlifyIdentity.gotrue.confirm(token[1])
+              .then(() => {
+                alert("Email confirmé! Vous pouvez maintenant vous connecter.");
+                document.location.href = "/admin/";
+              })
+              .catch((error) => {
+                console.log("Erreur de confirmation:", error);
+              });
           }
         });
       }

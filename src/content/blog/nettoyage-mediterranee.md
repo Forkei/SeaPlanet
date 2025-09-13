@@ -3,6 +3,7 @@ title: "Grande opération de nettoyage en Méditerranée : 2 tonnes de déchets 
 description: "Retour sur notre dernière opération de nettoyage qui a mobilisé plus de 300 bénévoles"
 publishDate: 2024-02-10
 author: "Jean-Pierre Martin"
+image: "/images/uploads/mediterranee-cleanup.jpg"
 tags: ["nettoyage", "pollution", "méditerranée", "bénévolat"]
 ---
 

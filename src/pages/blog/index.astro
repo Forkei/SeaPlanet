@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import Image from '../../components/Image.astro';
+import { siteImages, getImage } from '../../config/images';
 
 const posts = await getCollection('blog');
 const sortedPosts = posts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
@@ -30,12 +32,25 @@ const sortedPosts = posts.sort((a, b) => b.data.publishDate.valueOf() - a.data.p
             day: 'numeric'
           });
           
+          const thumbnailImage = getImage(post.data.image || siteImages.blog.defaultThumbnail, 'thumbnail');
+
           return (
             <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow animate-on-scroll">
-              <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                <svg class="w-20 h-20 text-white/50" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
+              <div class="h-48 relative overflow-hidden">
+                {post.data.image ? (
+                  <Image
+                    src={thumbnailImage}
+                    alt={post.data.title}
+                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="h-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                    <svg class="w-20 h-20 text-white/50" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                  </div>
+                )}
               </div>
               
               <div class="p-6">

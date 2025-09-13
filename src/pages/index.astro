@@ -1,13 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Image from '../components/Image.astro';
+import { siteImages } from '../config/images';
 ---
 
 <Layout title="Accueil">
   <!-- Hero Section -->
   <section class="relative h-screen flex items-center justify-center overflow-hidden">
-    <!-- Background Image Placeholder -->
-    <div class="absolute inset-0 bg-gradient-to-b from-blue-900 via-blue-700 to-blue-500">
-      <div class="absolute inset-0 bg-black/30"></div>
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <Image
+        src={siteImages.homepage.hero}
+        alt="Océan"
+        class="w-full h-full object-cover"
+        loading="eager"
+        fallback={siteImages.fallback.hero}
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-blue-900/60 via-blue-700/50 to-blue-500/40">
+        <div class="absolute inset-0 bg-black/30"></div>
+      </div>
       <!-- Animated Wave Effect -->
       <svg class="absolute bottom-0 w-full" viewBox="0 0 1440 320" fill="white">
         <path fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
@@ -174,7 +185,13 @@ import Layout from '../layouts/Layout.astro';
         <div class="bg-white rounded-lg shadow-lg p-8 animate-on-scroll">
           <div class="flex items-start space-x-4">
             <div class="flex-shrink-0">
-              <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-blue-600"></div>
+              <Image
+                src={siteImages.homepage.testimonial1}
+                alt="Dr. Marie Dubois"
+                class="w-16 h-16 rounded-full object-cover"
+                loading="lazy"
+                fallback={siteImages.fallback.thumbnail}
+              />
             </div>
             <div class="flex-grow">
               <p class="font-body text-gray-700 italic mb-4">
@@ -194,7 +211,13 @@ import Layout from '../layouts/Layout.astro';
         <div class="bg-white rounded-lg shadow-lg p-8 animate-on-scroll">
           <div class="flex items-start space-x-4">
             <div class="flex-shrink-0">
-              <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-400 to-green-600"></div>
+              <Image
+                src={siteImages.homepage.testimonial2}
+                alt="Jean-Pierre Martin"
+                class="w-16 h-16 rounded-full object-cover"
+                loading="lazy"
+                fallback={siteImages.fallback.thumbnail}
+              />
             </div>
             <div class="flex-grow">
               <p class="font-body text-gray-700 italic mb-4">

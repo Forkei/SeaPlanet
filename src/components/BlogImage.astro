@@ -1,0 +1,33 @@
+---
+import Image from './Image.astro';
+
+export interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+  size?: 'small' | 'medium' | 'large' | 'full';
+}
+
+const { src, alt, caption, size = 'full' } = Astro.props;
+
+const sizeClasses = {
+  small: 'max-w-sm mx-auto',
+  medium: 'max-w-md mx-auto',
+  large: 'max-w-lg mx-auto',
+  full: 'w-full'
+};
+---
+
+<figure class={`my-8 ${sizeClasses[size]}`}>
+  <Image
+    src={src}
+    alt={alt}
+    class="w-full rounded-lg shadow-lg"
+    loading="lazy"
+  />
+  {caption && (
+    <figcaption class="mt-2 text-sm text-gray-600 text-center italic">
+      {caption}
+    </figcaption>
+  )}
+</figure>

@@ -1,0 +1,35 @@
+---
+export interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  width?: number;
+  height?: number;
+  fallback?: string;
+}
+
+const {
+  src,
+  alt,
+  class: className = '',
+  loading = 'lazy',
+  width,
+  height,
+  fallback = '/images/uploads/fallback.jpg'
+} = Astro.props;
+
+// Simple check if it's an absolute URL or data URL
+const isAbsoluteUrl = src.startsWith('http') || src.startsWith('data:');
+const imageSrc = isAbsoluteUrl ? src : src;
+---
+
+<img
+  src={imageSrc}
+  alt={alt}
+  class={className}
+  loading={loading}
+  width={width}
+  height={height}
+  onerror={`this.onerror=null; this.src='${fallback}'`}
+/>

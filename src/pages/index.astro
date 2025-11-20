@@ -39,14 +39,165 @@ import { siteImages } from '../config/images';
     </div>
   </section>
 
-  <!-- Introduction Section -->
-  <section id="introduction" class="py-20 bg-white">
-    <div class="container mx-auto px-4 max-w-4xl text-center animate-on-scroll">
-      <p class="font-body text-lg md:text-xl text-gray-700 leading-relaxed">
-        MELBA&CO EST UNE ASSOCIATION D'INTÉRÊT GÉNÉRAL QUI ŒUVRE POUR LA PROTECTION ET LA RESTAURATION DES ÉCOSYSTÈMES MARINS. DEPUIS NOTRE CRÉATION, NOUS MOBILISONS CITOYENS, SCIENTIFIQUES ET DÉCIDEURS POUR PRÉSERVER LA BIODIVERSITÉ MARINE ET PROMOUVOIR UNE GESTION DURABLE DES RESSOURCES OCÉANIQUES.
-      </p>
+  <!-- Benjamin's Introduction Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="grid md:grid-cols-2 gap-12 items-center animate-on-scroll">
+        <!-- Text Content -->
+        <div class="order-2 md:order-1">
+          <h2 class="font-heading font-bold text-3xl md:text-4xl text-ocean-blue mb-6">
+            Bonjour ! Je m'appelle Benjamin.
+          </h2>
+          <div class="font-body text-gray-700 leading-relaxed space-y-4">
+            <p>
+              Je voudrais te parler d'un truc super important : <strong class="text-primary-orange">Nos océans.</strong>
+            </p>
+            <p>
+              Les océans, c'est comme un énorme trésor. On peut trouver des poissons de toutes les couleurs, des algues qui bougent comme des cheveux dans l'eau, des crabes qui marchent de travers et même des énormes baleines. Il y a plein d'animaux incroyables, et tellement à découvrir encore !!
+            </p>
+            <p>
+              Savais-tu que la majeure partie de l'oxygène du monde est produite par le phytoplancton ? C'est incroyable !! Ces micro-organismes sont responsables de la production d'environ <strong>50 à 80% de l'oxygène terrestre</strong>. En fait, ce n'est pas les arbres qui fabriquent le plus d'oxygène, mais des toutes petites plantes dans la mer, qu'on ne voit même pas à l'œil nu. Elles sont minuscules !!
+            </p>
+            <p>
+              J'adore nager et depuis plus d'un an maintenant j'apprends à faire de la plongée. Je suis en 6e et j'ai 11 ans, et même si je suis encore jeune, j'ai déjà deux grands rêves : <strong class="text-ocean-blue">protéger les mers et les océans</strong> et <strong class="text-ocean-blue">faire partager ma passion</strong>.
+            </p>
+            <p class="text-lg font-medium text-ocean-blue">
+              Tu veux agir ? Pas besoin d'être un expert : il suffit d'avoir envie d'aider. Ensemble, on peut vraiment changer les choses.
+            </p>
+            <p class="text-xl font-heading font-bold text-primary-orange">
+              Alors, tu rejoins mon association ?
+            </p>
+          </div>
+        </div>
+        <!-- Image -->
+        <div class="order-1 md:order-2 flex justify-center">
+          <div class="relative">
+            <Image
+              src={siteImages.homepage.benjaminPortrait}
+              alt="Benjamin"
+              class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-2xl border-4 border-primary-orange"
+              loading="lazy"
+              fallback={siteImages.fallback.thumbnail}
+            />
+            <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-primary-orange rounded-full flex items-center justify-center shadow-lg">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- Naissance de Melba&Co Section -->
+  <section class="py-20 bg-light-beige">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <div class="text-center animate-on-scroll mb-12">
+        <h2 class="font-heading font-bold text-4xl md:text-5xl text-ocean-blue mb-4">
+          Naissance de Melba&Co
+        </h2>
+        <div class="text-primary-orange text-4xl mb-8">~~~</div>
+      </div>
+
+      <div class="animate-on-scroll">
+        <div class="font-body text-lg text-gray-700 leading-relaxed space-y-4 mb-12">
+          <p>
+            Je crée le site de cette association avec l'aide de mon cousin Olivier et de ma maman.
+          </p>
+        </div>
+
+        <!-- Full Width Image -->
+        <div class="mb-12">
+          <Image
+            src={siteImages.homepage.melbaBoat}
+            alt="Le bateau Melba"
+            class="w-full h-64 md:h-96 object-cover rounded-xl shadow-xl"
+            loading="lazy"
+            fallback={siteImages.fallback.hero}
+          />
+        </div>
+
+        <div class="font-body text-lg text-gray-700 leading-relaxed space-y-4">
+          <p>
+            <strong class="text-ocean-blue">« Melba&Co »</strong> c'est au début une histoire de famille, l'histoire de Melba.
+          </p>
+          <p>
+            <strong>« Melba »</strong> c'est le nom du bateau de mes grands-parents, c'est mon papi qui a concrétisé son rêve d'enfant en construisant son bateau et en partant à l'aventure sur les mers !! <span class="text-primary-orange font-semibold">Bravo papi !!</span>
+          </p>
+          <p>
+            Aujourd'hui Melba va avoir une deuxième vie et mener des <strong>actions concrètes pour la protection de nos mers et océans</strong>.
+          </p>
+          <p class="text-xl font-heading font-bold text-primary-orange text-center pt-4">
+            Tu me rejoins ?
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projets Section -->
+  <section class="py-20 bg-primary-orange">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <div class="text-center animate-on-scroll mb-12">
+        <h2 class="font-heading font-bold text-4xl md:text-5xl text-ocean-blue mb-4">
+          PROJETS
+        </h2>
+        <div class="text-ocean-blue text-4xl mb-8">~~~</div>
+      </div>
+
+      <div class="animate-on-scroll">
+        <div class="font-body text-lg text-ocean-blue leading-relaxed space-y-6">
+          <p>
+            Le site de « Melba&Co » est encore en construction ; je vais y travailler régulièrement pour y « donner de la vie »
+          </p>
+          <p>
+            Cette association est à but non lucratif. Elle a pour objectif d'être <strong>la plus transparente possible</strong> et rendra compte des succès comme des difficultés que l'on rencontrera.
+          </p>
+          <p>
+            <strong>L'éducation et le partage des connaissances</strong> seront au centre du projet.
+          </p>
+
+          <div class="bg-ocean-blue/10 rounded-xl p-6 mt-8">
+            <p class="font-semibold mb-4">
+              L'association participera à des programmes de science participative en collaborant avec d'autres associations :
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <span class="text-ocean-blue text-xl mr-3">🌊</span>
+                <span><strong>Plastic Pollution :</strong> dans la collecte des microplastiques avec des filets Manta (ex. Expédition 7e Continent, Surfrider).</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-ocean-blue text-xl mr-3">🐋</span>
+                <span><strong>Observation de la biodiversité :</strong> signaler mammifères marins, oiseaux, tortues (OBSenMER, WhaleReport).</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-ocean-blue text-xl mr-3">💧</span>
+                <span><strong>Qualité de l'eau :</strong> prélèvements pour associations comme Plancton du Monde.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-ocean-blue text-xl mr-3">📊</span>
+                <span><strong>Récolter et partager</strong> des infos fiables.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="text-center pt-8">
+            <p class="text-2xl font-heading font-bold text-ocean-blue mb-4">
+              Tu me rejoins ?
+            </p>
+            <p class="text-ocean-blue/80 mb-6">
+              Fais circuler autour de toi l'adresse du site stp.
+            </p>
+            <a href="/don" class="inline-block bg-donate-red text-white px-10 py-4 rounded-lg font-body font-semibold text-lg hover:bg-red-700 transform hover:scale-105 transition-all shadow-xl">
+              REJOINDRE L'ASSOCIATION
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- Vision Section -->
   <section class="py-20 bg-primary-orange">

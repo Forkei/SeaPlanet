@@ -13,6 +13,8 @@ export const siteImages = {
     hero: '/images/uploads/ocean-hero.jpg', // Image principale de la page d'accueil
     testimonial1: '/images/uploads/testimonial-1.jpg', // Photo du premier témoignage
     testimonial2: '/images/uploads/testimonial-2.jpg', // Photo du deuxième témoignage
+    benjaminPortrait: '/images/uploads/benjamin-portrait.jpg', // Photo de Benjamin
+    melbaBoat: '/images/uploads/melba-boat.png', // Photo du bateau Melba ou de la famille
   },
 
   // Images de la page Missions
